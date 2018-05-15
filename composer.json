@@ -1,0 +1,29 @@
+{
+    "name": "webdevjohn/filterable",
+    "description": "Filterbale eloquent models for Laravel",
+    "keywords": [
+        "laravel",
+        "eloquent",
+        "model",
+        "query",
+        "filter"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "John"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Webdevjohn\\Filterable\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Webdevjohn\\Filterable\\FilterableServiceProvider"
+            ]
+        } 	
+    }
+}

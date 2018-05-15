@@ -1,0 +1,24 @@
+<?php
+
+namespace DummyNamespace;
+
+use Webdevjohn\Filterable\Interfaces\FilterableInterface;
+
+class DummyClass implements FilterableInterface
+{
+    
+	/**
+	 * Model Filter.
+	 *
+	 * @param $query
+	 * @param $arg
+	 * 
+	 * @return void
+	 */
+	public function filter($query, $arg)
+	{
+        // implement the query....
+       	$query->where('', $arg); 
+	}
+
+}

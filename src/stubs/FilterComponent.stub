@@ -1,0 +1,62 @@
+<?php 
+
+namespace DummyNamespace;
+
+use Webdevjohn\Filterable\Interfaces\FilterComponentInterface;
+
+class DummyClass implements FilterComponentInterface 
+{
+
+	/**
+	 * The namespace of the instantiable Filter classes.
+	 * 
+	 * @return string
+	 */	
+	public function getInstantiableFiltersNamespace(): string
+	{
+		return 'App\\Filters';
+    }
+	
+	
+    /**
+	 * A safe list of filters that can be applied to the model. 
+	 * 
+	 * Each of the names in the array are used to dynamically build and 
+	 * instantiate the Filter classes. The names in the array correspond 
+	 * to a query string parameter name, and these are what should be 
+	 * returned by the function.
+	 * 
+	 * For example, the query string parameter  "year_released" will instantiate 
+	 * the "YearReleasedFilter" class and apply the filter to the model.  
+	 * 
+	 * 
+	 * @return array 
+	 */
+	public function getInstantiableFilters(): array
+	{
+		return [];
+	}
+
+
+    /**
+	 * The namespace of the common instantiable Filter classes.
+	 * 
+	 * @return string
+	 */	
+	public function getInstantiableCommonFiltersNamespace(): string
+	{
+		return 'App\\Filters\\Common';
+    }
+	
+
+	/**
+	 * A safe list of common filters that can be applied to the model. 
+	 *
+	 * @return array
+	 */
+	public function getInstantiableCommonFilters(): array
+	{
+		return [];
+	}
+
+}
