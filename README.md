@@ -109,7 +109,7 @@ public function scopeFilters($query, $request)
 
 
 ## Usage
-The example below is calling the Filter() method from a repository, but the concept is that same if used directly in a model or controller.
+The example below is calling the Filters() method from a repository, but the concept is that same if used directly in a model or controller.
 
 With any of your existing queries you can call the Filters() method, passing through the $request->input().  This will dynamically instantiate and apply the filters to the model.
 
