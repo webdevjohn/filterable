@@ -14,7 +14,8 @@ trait CustomisableNamespace {
     {
         if ($this->argument('DummyNamespace')) {            
             return $this->createCustomNamespace($this->argument('DummyNamespace'));
-        }        
+        }      
+          
         return $rootNamespace . $this->appendRootNamespace();
     }
 
@@ -27,14 +28,44 @@ trait CustomisableNamespace {
      */
     protected function createCustomNamespace(string $dummyNamespace)
     {
-        $dummyNamespaceElements = explode("\\", $dummyNamespace);
-
-        foreach ($dummyNamespaceElements as $dummyNamespaceElement) {
+        foreach ($this->getNamespaceElements($dummyNamespace) as $dummyNamespaceElement) {
             $processed[] = studly_case($dummyNamespaceElement);
         }
-        
+           
         return implode($processed, '\\');
     }
 
-    
+
+    /**
+     * Explode the namespace and return the elements as an array.
+     *
+     * @param string $dummyNamespace
+     * 
+     * @return array
+     */
+    protected function getNamespaceElements(string $dummyNamespace)
+    {
+        if($this->stringContains($dummyNamespace, '\\')) {
+            return explode("\\", $dummyNamespace);
+        }
+
+        return explode("/", $dummyNamespace);        
+    }
+
+
+    /**
+     * Find a given needle within a string.
+     *
+     * @param string $theString
+     * @param string $needle
+     * 
+     * @return boolean
+     */
+    protected function stringContains($theString, $needle)
+    {
+        return strpos($theString, $needle) !== FALSE;
+    } 
+
+
+
 }
