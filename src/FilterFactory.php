@@ -2,6 +2,7 @@
 
 namespace Webdevjohn\Filterable;
 
+use Illuminate\Support\Str;
 use Webdevjohn\Filterable\Interfaces\FilterComponentInterface;
 
 class FilterFactory {
@@ -117,7 +118,7 @@ class FilterFactory {
 	 */
 	protected function resolveNamespace(string $className, bool $commonFilterFlag)
 	{
-		$className = studly_case($className);
+		$className = Str::studly($className);
 
 		$className .= 'Filter';
 
