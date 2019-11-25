@@ -2,6 +2,8 @@
 
 namespace Webdevjohn\Filterable\Commands\Traits;
 
+use Illuminate\Support\Str;
+
 trait CustomisableNamespace {
 
     /**
@@ -29,7 +31,7 @@ trait CustomisableNamespace {
     protected function createCustomNamespace(string $dummyNamespace)
     {
         foreach ($this->getNamespaceElements($dummyNamespace) as $dummyNamespaceElement) {
-            $processed[] = studly_case($dummyNamespaceElement);
+            $processed[] = Str::studly($dummyNamespaceElement);
         }
            
         return implode($processed, '\\');
