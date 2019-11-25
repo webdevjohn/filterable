@@ -34,7 +34,7 @@ trait CustomisableNamespace {
             $processed[] = Str::studly($dummyNamespaceElement);
         }
            
-        return implode($processed, '\\');
+        return implode('\\', $processed);
     }
 
 
