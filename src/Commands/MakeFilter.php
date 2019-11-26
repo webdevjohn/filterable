@@ -40,7 +40,7 @@ class MakeFilter extends GeneratorCommand
      */
     protected function appendRootNamespace()
     {
-        return '\\Filters';
+        return '\\Models\\Filters';
     }
 
  }
