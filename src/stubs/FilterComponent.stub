@@ -14,7 +14,7 @@ class DummyClass implements FilterComponentInterface
 	 */	
 	public function getInstantiableFiltersNamespace(): string
 	{
-		return 'App\\Filters';
+		return 'App\\Models\\Filters';
     }
 	
 	
@@ -45,7 +45,7 @@ class DummyClass implements FilterComponentInterface
 	 */	
 	public function getInstantiableCommonFiltersNamespace(): string
 	{
-		return 'App\\Filters\\Common';
+		return 'App\\Models\\Filters\\_Common';
     }
 	
 
