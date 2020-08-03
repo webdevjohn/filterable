@@ -13,6 +13,12 @@ class FilterFactory {
 	 * @var FilterComponentInterface
 	 */
 	protected $component;
+
+	/**
+	 *
+	 * @var boolean
+	 */
+	protected $commonFilterFlag = false;
 	
 	/**
 	 * Create a new FilterFactory.
@@ -95,13 +101,12 @@ class FilterFactory {
 	 * Returns an instantiated filter class.
 	 *
 	 * @param string $className
-	 * @param bool $commonFilterFlag
 	 * 
 	 * @return Class  
 	 */
-	protected function makeFilterFrom(string $className, bool $commonFilterFlag = false)
+	protected function makeFilterFrom(string $className)
 	{	
-		$class = $this->resolveNamespace($className, $commonFilterFlag);
+		$class = $this->resolveNamespace($className);
 
 		return new $class;
 	}
@@ -111,20 +116,18 @@ class FilterFactory {
 	 * Determines which namespace to prepend to the classname.
 	 * Returns a fully qualified classname.
 	 * 
-	 * @param string $className
-	 * @param bool $commonFilterFlag
+	 * @param string $className	 
 	 * 
 	 * @return string 
 	 */
-	protected function resolveNamespace(string $className, bool $commonFilterFlag)
+	protected function resolveNamespace(string $className)
 	{
 		$className = Str::studly($className);
 
 		$className .= 'Filter';
 
-		if ($commonFilterFlag) return $this->component->getInstantiableCommonFiltersNamespace() . '\\' . $className;
+		if ($this->commonFilterFlag) return $this->component->getInstantiableCommonFiltersNamespace() . '\\' . $className;
 
 		return $this->component->getInstantiableFiltersNamespace() . '\\' . $className;	
     }
-	
 }
