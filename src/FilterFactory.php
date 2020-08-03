@@ -43,9 +43,27 @@ class FilterFactory {
 	{
 		$this->applyFilters($query, $requestInput);
 		$this->applyCommonFilters($query, $requestInput);
+		$this->applyIOCFilters($query);
 	}
 
-	
+
+	/**
+	 * Dynamically applies multiple filters from the IOC container to the model.
+	 *
+	 * @param $query
+	 * 
+	 * @return void
+	 */
+	protected function applyIOCFilters($query)
+	{
+		$iocFilters = $this->component->getIOCFilters();
+
+		foreach ($iocFilters as $iocFilter) {
+			app()->make($iocFilter)->filter($query, null);
+		}	
+	}
+
+
     /**
 	 * Dynamically applies multiple filters to the model.
 	 *
