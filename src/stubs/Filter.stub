@@ -20,5 +20,4 @@ class DummyClass implements FilterableInterface
         // implement the query....
        	$query->where('', $arg); 
 	}
-
 }

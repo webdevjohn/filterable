@@ -59,4 +59,15 @@ class DummyClass implements FilterComponentInterface
 		return [];
 	}
 
+
+    /**
+	 * Filter the model from a filter contained within the IOC container, 
+	 * specifying the name (as string) for each binding within the IOC container.
+	 *
+	 * @return array
+	 */
+	public function getIOCFilters(): array
+	{
+		return [];
+	}
 }
