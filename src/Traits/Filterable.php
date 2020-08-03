@@ -13,5 +13,4 @@ trait Filterable {
 	{
 		return app()->make($factory);
 	}
-
 }
