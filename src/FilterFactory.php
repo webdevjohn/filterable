@@ -91,9 +91,11 @@ class FilterFactory {
 	 */
 	protected function applyCommonFilters($query, array $requestInput)
 	{
+		$this->commonFilterFlag = true;
+		
 		foreach ($this->appliableFilters($requestInput, $this->component->getInstantiableCommonFilters()) as $requestInputName) 
 		{		
-			$this->makeFilterFrom($requestInputName, true)->filter($query, $requestInput[$requestInputName]);
+			$this->makeFilterFrom($requestInputName)->filter($query, $requestInput[$requestInputName]);
 		}	
 	}
 
